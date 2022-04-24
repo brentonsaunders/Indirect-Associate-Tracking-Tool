@@ -1,0 +1,408 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+}
+
+header {
+    display: flex;
+    height: 56px;
+    background-color: rgb(42, 92, 153);
+    color: rgb(255, 255, 255);
+    font-size: 133%;
+    font-weight: bold;
+}
+
+nav {
+    position: absolute;
+    top: 56px;
+    left: -320px;
+    bottom: 0;
+    width: 320px;
+    background-color: rgb(255, 255, 255);
+    z-index: 1;
+    transition: all 0.5s;
+}
+
+.wrapper.menu-open nav {
+    left: 0;
+}
+
+.wrapper.hide-menu #menu-button {
+    display: none;
+}
+
+.wrapper.menu-open #menu-button > div div:nth-child(1) {
+    transform: translate(0, 6px) rotate(45deg) ;
+    transform-origin: 50% 50%;
+}
+
+.wrapper.menu-open #menu-button > div div:nth-child(3) {
+    transform: translate(0, -6px) rotate(-45deg) ;
+    transform-origin: 50% 50%;
+}
+
+.wrapper.menu-open #menu-button > div div:nth-child(2) {
+    left: -100px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav li {
+    
+}
+
+nav li + li {
+    border-top: 1px solid rgb(195, 195, 195);
+}
+
+nav li a {
+    display: block;
+    padding: 20px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: rgb(225, 225, 225);
+}
+
+#copyright {
+    position: absolute;
+    width: 100%;
+    bottom: 20px;
+    font-size: 75%;
+    color: rgb(60, 60, 60);
+    text-align: center;
+}
+
+#copyright a {
+    color: rgb(0, 162, 232);
+    text-decoration: none;
+}
+
+footer {
+    padding: 15px;
+}
+
+#footer-copyright {
+    font-weight: bold;
+    color: rgb(60, 60, 60);
+    text-align: center;
+}
+
+#footer-copyright a {
+    color: rgb(0, 162, 232);
+    text-decoration: none;
+}
+
+.wrapper.menu-open main,
+.wrapper.menu-open footer {
+    filter: brightness(50%);
+    background-color: rgb(255, 255, 255);
+}
+
+#menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+}
+
+#menu-button > div {
+    position: relative;
+}
+
+#menu-button > div > div {
+    position: relative;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    transition: all 0.25s;
+}
+
+#menu-button > div > div + div {
+    margin-top: 4px;
+}
+
+#title {
+    display: flex;
+    align-items: center;
+    height: 56px;
+    padding-left: 15px;
+}
+
+main {
+    flex: 1;
+    padding: 15px;
+}
+
+#login {
+    padding-top: 40px;
+    font-size: 120%;
+}
+
+#login form {
+
+}
+
+#login label {
+    display: block;
+}
+
+#login label span {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+#login input[type=text] {
+    display: block;
+    margin-bottom: 12px;
+    padding: 0 8px;
+    width: 100%;
+    height: 40px;
+    font-size: 100%;
+    outline: none;
+    border: 1px solid rgb(195, 195, 195);
+}
+
+#login input[name='associate-id'],
+#login input[name='associate-id2'] {
+    text-transform: lowercase;
+}
+
+#login input[type=submit] {
+    margin-top: 40px;
+}
+
+#login input[type=submit],
+#add-note,
+#change-location {
+    display: block;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(128, 128, 128);
+    transition: all 0.25s;
+}
+
+#login input[type=submit]:hover,
+#change-location:hover {
+    background-color: rgb(0, 162, 232);
+}
+
+#add-note:hover {
+    background-color: rgb(34, 177, 76);
+}
+
+#location-changer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#opening-camera {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#opening-camera h1 {
+    font-size: 150%;
+}
+
+#location-changed {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#location-changed > h1 {
+    text-align: center;
+    font-size: 150%;
+    margin-top: 40px;
+}
+
+#location-changed .buttons {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+#location-changed textarea {
+    display: block;
+    width: 100%;
+    height: 100px;
+    padding: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 120%;
+    outline: none;
+    border: 1px solid rgb(195, 195, 195);
+}
+
+#change-location,
+#add-note {
+    margin-top: 10px;
+}
+
+#qr-canvas {
+    display: block;
+    margin: auto;
+    width: 100%;
+}
+
+#dashboard {
+    padding-top: 40px;
+}
+
+#dashboard > h1 {
+    font-size: 200%;
+}
+
+#dashboard table {
+    width: 100%;
+    font-size: 100%;
+    margin-top: 40px;
+    border-collapse: collapse;
+}
+
+#dashboard table tr:first-child {
+    border-bottom: 1px solid rgb(195, 195, 195);
+}
+
+#dashboard table th {
+    text-align: left;
+    text-transform: uppercase;
+    color: rgb(90, 90, 90);
+    background-color: rgb(255, 255, 255);
+}
+
+#dashboard table th:first-child {
+    padding: 15px 0;
+}
+
+#dashboard table td {
+    color: rgb(60, 60, 60);
+    font-weight: bold;
+    vertical-align: top;
+}
+
+#dashboard table a {
+    color: inherit;
+    text-decoration: none;
+}
+
+#all-locations li {
+    height: 40px;
+}
+
+#all-locations .notes {
+    max-width: 150px;
+}
+
+#all-locations .notes li {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#all-locations .associates span {
+    display: block;
+    font-size: 80%;
+    margin-top: 3px;
+}
+
+#dashboard table td:first-child {
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+}
+
+#dashboard table td:not(:first-child) {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#dashboard table tr:nth-child(odd) {
+    background-color: rgb(235, 235, 235);
+}
+
+#dashboard table ul {
+    list-style-type: none;
+}
+
+#location h2,
+#find-associate h2 {
+    font-size: 133%;
+    margin: 40px 0;
+}
+
+#location p,
+#find-associate p {
+    font-size: 120%;
+}
+
+#location .notes,
+#find-associate .notes {
+    max-width: 200px;
+}
+
+#find-associate form {
+    margin-top: 40px;
+}
+
+#find-associate form input[type=text] {
+    display: block;
+    width: 100%;
+    height: 48px;
+    outline: none;
+    border: none;
+    border-radius: 24px;
+    font-size: 120%;
+    background-color: rgb(225, 225, 225);
+    background-image: url('../img/icons8-search.svg');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    padding-left: 50px;
+    padding-right: 15px;
+}
