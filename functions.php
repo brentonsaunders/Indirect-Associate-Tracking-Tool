@@ -176,7 +176,8 @@ function getAssociatesAtLocation($pdo, $locationId) {
             '    GROUP BY associate_id ' . 
             ') t2 ' . 
             'ON t1.associate_id = t2.associate_id AND ' . 
-            't1.time = t2.max_time AND ' . 
+            't1.time = t2.max_time AND ' .
+            't2.max_time > NOW() - INTERVAL 30 MINUTE AND ' .
             't1.location_id = :location_id ' . 
             'JOIN associates t3 ' . 
             'ON t1.associate_id = t3.id ' . 
